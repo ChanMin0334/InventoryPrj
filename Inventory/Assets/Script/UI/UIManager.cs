@@ -1,10 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    [SerializeField]
+    UIMainMenu uiMainMenu;
+
+    [SerializeField]
+    UIStatus uiStatus;
+
+    [SerializeField]
+    UIInventory uiInventory;
+
+    [SerializeField]
+    GameObject btnCanvas;
+
     void Start()
     {
         
@@ -14,5 +24,26 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OpenMainmenu()
+    {
+        btnCanvas.SetActive(true);
+        uiStatus.gameObject.SetActive(false);
+        uiInventory.gameObject.SetActive(false);
+    }
+
+    public void OpenStatus()
+    {
+        btnCanvas.SetActive(false);
+        uiStatus.gameObject.SetActive(true);
+        uiInventory.gameObject.SetActive(false);
+    }
+
+    public void OpenInventory()
+    {
+        btnCanvas.SetActive(false);
+        uiStatus.gameObject.SetActive(false);
+        uiInventory.gameObject.SetActive(true);
     }
 }
